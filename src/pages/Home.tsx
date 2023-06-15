@@ -1,21 +1,27 @@
 import { useState, useEffect } from 'react'
 import fetchMovie from '../api'
+import Card from '../components/Card';
 const Home = () => {
-    const [clickedMovie, setClickedMovie] = useState('');
-    const [moviesDetails, setMoviesDetails] = useState({})
+
+    const [moviesDetails, setMoviesDetails] = useState()
 
 
     useEffect(() => {
-        fetchMovie().then((data) =>
-            setMoviesDetails(data))
+        const FetchData = async () => {
+            const data = await fetchMovie();
+            console.log("this is data", data)
 
-        console.log(moviesDetails)
+            setMoviesDetails(data)
+        }
+        FetchData()
+
     }, [])
+
     return (
         <div className='container bg-white mx-auto '>
 
             <div className="card-container p-5 grid gap-1 grid-cols-3 grid-rows-1">
-
+                <Card movieDetails={moviesDetails} />
             </div>
         </div>
     )

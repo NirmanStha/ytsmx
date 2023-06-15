@@ -8,9 +8,9 @@ const fetchMovie = async () => {
     try {
 
         const res = await axios.get(`${BASE_URL}/list_movies.json`)
-        const resData = res.data.data.movies;
 
-        return resData;
+        console.log(res.data.data.movies)
+        return res.data.data.movies;
     }
     catch (err) {
         console.log(err)
