@@ -1,27 +1,29 @@
 import { useState, useEffect } from 'react'
-import fetchMovie from '../api'
+import { fetchMovies } from '../api'
 import Card from '../components/Card';
+import { MovieDetails } from '../types/movie';
+
 const Home = () => {
 
-    const [moviesDetails, setMoviesDetails] = useState()
 
+    const [popular, setPopular] = useState<MovieDetails[] | null>(null)
+    const [latest, setLatest] = useState<MovieDetails[] | null>(null)
+    const [first, setfirst] = useState<MovieDetails[] | null>(null)
 
     useEffect(() => {
-        const FetchData = async () => {
-            const data = await fetchMovie();
-            console.log("this is data", data)
+        (async function () {
+            const data = await fetchMovies(16);
+            setPopular()
 
-            setMoviesDetails(data)
-        }
-        FetchData()
+        })(); // tei call garney function
 
     }, [])
 
     return (
-        <div className='container bg-white mx-auto '>
-
-            <div className="card-container p-5 grid gap-1 grid-cols-3 grid-rows-1">
-                <Card movieDetails={moviesDetails} />
+        <div className='container bg-prim mx-auto h-screen text-white '>
+            <h2 className='text-center font-bold text-xxl m-2'>Popular Download</h2>
+            <div className="card-container mx-auto p-2 popular">
+                {moviesDetails != null ? (<Card movieDetails={moviesDetails} />) : (<div> Fetchin datta</div>)}
             </div>
         </div>
     )

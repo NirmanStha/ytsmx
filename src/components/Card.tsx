@@ -1,31 +1,31 @@
 
+import { Link } from "react-router-dom"
+import { MovieDetails } from "../types/movie"
 
-const Card = ({ movieDetails }: { movieDetails: any }) => {
-  console.log(movieDetails)
-
-  return (
-    <div className="bg-white">
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        <h2 className="sr-only">Products</h2>
-
-        <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-          {movieDetails.map((data: any) => (
-            <a key={data.id} href={data.href} className="group">
-              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-                <img
-                  src={data.medium_cover_image}
-                  alt={data.medium_cover_image}
-                  className="h-full w-full object-cover object-center group-hover:opacity-75"
-                />
-              </div>
-              <h3 className="mt-4 text-sm text-gray-700">{data.name}</h3>
-              <p className="mt-1 text-lg font-medium text-gray-900">{data.rating}</p>
-            </a>
-          ))}
-        </div>
-      </div>
-    </div>
-  )
+interface CardProps {
+  movieDetails: MovieDetails[]
 }
+
+const Card = ({ movieDetails }: CardProps) => (
+  <div className="card flex  mx-auto space-x-1 text-white w-full justify-center items-center">
+    {
+      movieDetails.map((movie) => (
+        <Link className=" rounded card min-h-64 max-w-xs" to={`/movie_details/${movie.id}`} key={movie.id}>
+          <div>
+            <div className="img h-4/5 border-white border-4 transition duration-700 ease-in-out hover:border-green  ">
+
+              <img className="h-full w-full" src={movie.medium_cover_image} alt='Error loading image' />
+            </div>
+            <div className="description mt-1 ">
+              <h5 className="text-white font-bold">{movie.title.length > 20 ? (movie.title.substring(0, 20) + '....') : (movie.title)}</h5>
+              <p className="font-light">{movie.year}</p>
+            </div>
+          </div>
+        </Link >
+      ))
+    }
+
+  </div >
+)
 
 export default Card
