@@ -7,17 +7,45 @@ const Details = () => {
 
     const { id } = useParams();
 
-    const [movieDetails, setMovieDetails] = useState<MovieDetails>()
+    const [movieDetails, setMovieDetails] = useState<MovieDetails | null>(null)
 
     useEffect(() => {
         fetchMovie(parseInt(id as string)).then((detail) => {
-            setMovieDetails(detail)
+            setMovieDetails(detail);
+            console.log(detail)
+
         }
         )
     }, [])
 
     return (
-        <div className='text-white'>{JSON.stringify(movieDetails)}</div>
+        <div>
+            {
+                movieDetails != null ? (
+
+                    <div className='container text-white '>
+
+                        <div className="flex justify-between items-center">
+                            <div className="card">
+                                <div className="h-44">
+                                    <img src={movieDetails.medium_cover_image} alt="" />
+                                </div>
+                            </div>
+                            <div className="movie-info"></div>
+                            <div className="similar"></div>
+
+                        </div>
+
+
+
+
+
+                    </div>
+
+                ) : (<h1>Loading</h1>)
+            }
+
+        </div>
     )
 }
 

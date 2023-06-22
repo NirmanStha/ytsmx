@@ -1,4 +1,5 @@
 export interface MovieDetails {
+    
     id:                        number;
     url:                       string;
     imdb_code:                 string;

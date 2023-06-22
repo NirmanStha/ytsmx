@@ -5,7 +5,9 @@ const BASE_URL = 'https://yts.mx/api/v2'
 
 
 export const fetchMovie = async (id: number): Promise<MovieDetails> => {
+    console.log(id)
     const res = await axios.get(`${BASE_URL}/movie_details.json?movie_id=${id}`)
+
     return res.data.data.movie;
 }
 

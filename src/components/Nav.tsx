@@ -8,7 +8,7 @@ const Nav = () => {
                 <div className="nav-links">
                     <ul className='flex justify-between items-center space-x-2'>
                         <li>Home</li>
-                        <li>Home</li>
+                        <li>4K</li>
                         <li>Home</li>
                         <li>Home</li>
                     </ul>

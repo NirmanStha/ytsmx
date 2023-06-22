@@ -24,12 +24,22 @@ const Home = () => {
     console.log(popular)
 
     return (
-        <div className='container bg-prim mx-auto h-screen text-white '>
-            <h2 className='text-center font-bold text-xxl m-2'>Popular Download</h2>
-            <div className="card-container mx-auto p-2 popular">
-                <Card movieDetails={popular} />
+        <>
+            <div className='container bg-prim mx-auto  text-white flex justify-center items-center flex-col'>
+                <h2 className='text-center font-bold text-xxl m-2 '>Popular Download</h2>
+                <div className="card-container mx-auto p-2 popular grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 justify-center gap-3">
+                    <Card movieDetails={popular} />
+                </div>
+
             </div>
-        </div>
+            <div className='container bg-prim mx-auto  text-white flex justify-center items-center flex-col '>
+                <h2 className='text-center font-bold text-xxl m-2 '>Latest Movies</h2>
+                <div className="card-container mx-auto p-2 popular grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 justify-center gap-3">
+                    <Card movieDetails={latest} />
+                </div>
+
+            </div>
+        </>
     )
 }
 

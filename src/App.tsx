@@ -14,7 +14,7 @@ function App() {
         <Nav />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/movie_details/:id(\\d+)' element={<Details />} />
+          <Route path='/movie/:id' element={<Details />} />
 
 
         </Routes>
@@ -26,3 +26,4 @@ function App() {
 }
 
 export default App
+// 
