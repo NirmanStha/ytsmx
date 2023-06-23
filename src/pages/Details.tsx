@@ -19,33 +19,35 @@ const Details = () => {
     }, [])
 
     return (
-        <div>
+        <div className=''>
             {
                 movieDetails != null ? (
 
-                    <div className='container text-white '>
-
-                        <div className="flex justify-between items-center">
-                            <div className="card">
-                                <div className="h-44">
-                                    <img src={movieDetails.medium_cover_image} alt="" />
-                                </div>
+                    <div className='container text-white mx-auto'>
+                        <div className='flex justify-start items-center space-x-3 mt-4 p-3'>
+                            <div className="movie-img flex flex-col justify-between items-center space-y-2">
+                                <img className='border-4 border-white rounded max-w-full' src={movieDetails.medium_cover_image} alt={movieDetails?.background_image_original} />
+                                <button className="btn bg-green font-bold rounded w-full p-2">Download</button>
+                                <button className="btn bg-green font-bold rounded w-full p-2">Watch Now</button>
                             </div>
-                            <div className="movie-info"></div>
-                            <div className="similar"></div>
+                            <div className="info">
 
+                            </div>
                         </div>
-
-
-
 
 
                     </div>
 
+
+
+
+
+
+
                 ) : (<h1>Loading</h1>)
             }
 
-        </div>
+        </div >
     )
 }
 
