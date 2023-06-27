@@ -2,7 +2,7 @@ import React from 'react'
 
 const Nav = () => {
     return (
-        <nav className='bg-prim text-white border-b-white border-b shadow-white'>
+        <nav className='bg-prim text-white border-b-white border-b shadow-white fixed top-0 w-full '>
             <div className="container flex justify-between items-center m-auto py-3">
                 <div className="logo">Logo</div>
                 <div className="nav-links">

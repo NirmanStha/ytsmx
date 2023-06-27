@@ -18,7 +18,8 @@ export default {
       'bubble-gum': '#ff77e9',
       'bermuda': '#78dcca',
       'green' : '#6ac045',
-      'black' : '#000'
+      'black' : '#000',
+      'watch' : '#0bae9e'
     },
     extend: {},
   },
