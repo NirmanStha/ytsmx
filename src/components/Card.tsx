@@ -1,39 +1,32 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { MovieDetails } from '../types/movie';
+import { Link } from "react-router-dom";
+import { MovieDetails } from "../types/movie";
 
 interface CardProps {
   movieDetails: MovieDetails[] | null;
 }
 
 const Card = ({ movieDetails }: CardProps) => {
+  const [imgLoadingErr, setImgLoadingErr] = useState(false)
   return (
     <>
-      {movieDetails != null ? (
-        movieDetails.map((movie) => (
+      {
+        movieDetails != null ? (movieDetails.map((movie) => (
           <Link className="rounded card min-h-64 max-w-max" to={`/movie/${movie.id}`} key={movie.id}>
             <div>
-              <div className="img h-4/5 max-w-xs border-white border-4 rounded transition duration-700 ease-in-out hover:border-green">
-                {movie?.medium_cover_image ? (
-                  <img className="h-full w-full" src={movie.medium_cover_image} alt="Error loading image" />
-                ) : (
-                  <div className="h-full w-full "></div>
-                )}
+              <div className="img h-4/5 max-w-xs border-white border-4 rounded transition duration-700 ease-in-out hover:border-green ">
+                <img className="h-full w-full" src={imgLoadingErr ? movie.medium_cover_image : } alt='yts.mx/assets/images/website/logo-YTS.svg' onError={ } />
               </div>
-              <div className="description mt-1">
-                <h5 className="font-bold transition duration-700 hover:text-silver">
-                  {movie.title.length > 20 ? movie.title.substring(0, 20) + '....' : movie.title}
-                </h5>
+              <div className="description mt-1 ">
+                <h5 className=" font-bold transition duration-700 hover:text-silver">{movie.title.length > 20 ? (movie.title.substring(0, 20) + '....') : (movie.title)}</h5>
                 <p className="font-light">{movie.year}</p>
               </div>
             </div>
           </Link>
-        ))
-      ) : (
-        'Loading'
-      )}
+        ))) : ("Loading")
+      }
     </>
   );
-};
+}
 
 export default Card;
