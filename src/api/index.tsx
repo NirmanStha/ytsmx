@@ -16,6 +16,11 @@ export const fetchMovies = async (limit: number): Promise<MovieDetails[]> => {
     return res.data.data.movies;
 }
 
+export const searchMovies = async (searchKey: any): Promise<MovieDetails[]> => {
+    console.log(searchKey)
+    const res = await axios.get(`${BASE_URL}/list_movies.json?query_term=${searchKey}`)
+    return res.data.data.movies;
+}
 // const fetchMovie = async (url: string): Promise<MovieDetails> => {
 
 // }

@@ -19,7 +19,8 @@ export default {
       'bermuda': '#78dcca',
       'green' : '#6ac045',
       'black' : '#000',
-      'watch' : '#0bae9e'
+      'watch' : '#0bae9e',
+      'bord' : '#2c2c2c'
     },
     extend: {},
   },
