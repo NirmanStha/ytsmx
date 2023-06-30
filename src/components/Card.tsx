@@ -1,4 +1,4 @@
-import { DetailedHTMLProps, ImgHTMLAttributes, ReactEventHandler, useState } from 'react';
+
 import { Link } from "react-router-dom";
 import { MovieDetails } from "../types/movie";
 
@@ -17,7 +17,7 @@ const Card = ({ movieDetails }: CardProps) => {
         movieDetails != null ? (movieDetails.map((movie) => (
           <Link className="rounded card min-h-64 max-w-max" to={`/movie/${movie.id}`} key={movie.id}>
             <div>
-              <div className="img h-4/5 max-w-xs border-white border-4 rounded transition duration-700 ease-in-out hover:border-green ">
+              <div className="img h-4/5  border-white border-4 rounded transition duration-700 ease-in-out hover:border-green ">
                 <img className="h-full w-full" src={movie.medium_cover_image} alt='error' onError={fallBackImg} />
               </div>
               <div className="description mt-1 ">

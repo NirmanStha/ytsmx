@@ -31,7 +31,7 @@ const Home = () => {
 
             {
                 loading ? (<div className='h-screen flex justify-center items-center'>
-                    <div className="loader h-12 w-12 aspect-square flex justify-center items-center animate-spin border-white border-4 border-dashed rounded-full">
+                    <div className="loader h-12 w-12 aspect-square flex justify-center items-center animate-spin border-r-green border-white border-4 border-dashed rounded-full">
 
 
                     </div>
