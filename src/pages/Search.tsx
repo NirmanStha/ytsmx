@@ -14,7 +14,7 @@ const Search = () => {
     searchMovies(searchKey).then((items) => {
       setSearchResults(items);
     });
-  }, []);
+  }, [searchKey]);
   console.log(searchResults);
   return (
     <div className="max-w-7xl sm:max-w-md md:max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto">
