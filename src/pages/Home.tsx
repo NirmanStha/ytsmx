@@ -8,7 +8,7 @@ const Home = () => {
 
     const [popular, setPopular] = useState<MovieDetails[] | null>(null)
     const [latest, setLatest] = useState<MovieDetails[] | null>(null)
-    const [upComing, setUpComing] = useState<MovieDetails[] | null>(null)
+
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -17,7 +17,7 @@ const Home = () => {
             setLoading(true);
             setPopular(data.slice(0, 4));
             setLatest(data.slice(4, 12));
-            setUpComing(data.slice(12, 16));
+           
             setLoading(false);
 
 

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import SearchComponent from "./SearchBar";
 
 const Nav = () => {
@@ -12,8 +13,8 @@ const Nav = () => {
             <SearchComponent />
           </div>
           <ul className="flex justify-between items-center space-x-2">
-            <li>Home</li>
-            <li>4K</li>
+            <Link to={'/'}>Home</Link>
+           
           </ul>
         </div>
       </div>

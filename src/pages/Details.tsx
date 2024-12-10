@@ -44,8 +44,8 @@ const Details = () => {
                 }}
               >
                 <div className=" sm:max-w-xl mx-auto md:max-w-2xl lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl ">
-                  <div className="  grid  pt-24  grid-cols-2  space-x-4 sm:space-x-0   ">
-                    <div className="movie-img flex  flex-col justify-between items-center space-y-2 w-full sm:w-max">
+                  <div className="  grid  pt-24  grid-cols-1  space-x-4 sm:space-x-0 md:grid-cols-2   ">
+                    <div className="movie-img flex  flex-col justify-between items-center space-y-2 w-full sm:w-max ">
                       <img
                         className="border-4 border-white rounded max-w-full"
                         src={movieDetails.medium_cover_image}
@@ -137,12 +137,15 @@ const Details = () => {
                     : movieDetails.description_intro.length > 100
                     ? movieDetails.description_intro.substring(0, 300) + "...."
                     : movieDetails.description_intro}
-                  <button
+                  {
+                    movieDetails.description_intro === "" ?"":` <button
                     onClick={toggleFullDescription}
                     className="  rounded-sm  underline  mx-2"
                   >
                     {showFullDescription ? "Show Less" : "Read More"}
-                  </button>
+                  </button>`
+                  }
+                 
                 </>
               )}
             </div>
